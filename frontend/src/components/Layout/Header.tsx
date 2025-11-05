@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, User, LogOut, Sun, Moon, Bell } from 'lucide-react';
+import { Menu, User, LogOut, Sun, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SidebarTrigger } from './Sidebar';
 
@@ -14,7 +14,6 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ user, onMenuToggle, onLogout }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [notifications] = useState(1); // Mock notification count
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -70,23 +69,6 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuToggle, onLogout }) 
               </span>
             </button>
 
-            {/* Notifications */}
-            {user && (
-              <div className="relative">
-                <button
-                  className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-10 w-10 relative"
-                  aria-label={`Ver notificaciones. ${notifications} sin leer.`}
-                  aria-expanded="false"
-                >
-                  <Bell className="w-5 h-5" />
-                  {notifications > 0 && (
-                    <span className="absolute top-0 right-0 block h-4 w-4 rounded-full ring-2 ring-background bg-destructive text-destructive-foreground text-[10px] flex items-center justify-center font-bold">
-                      {notifications}
-                    </span>
-                  )}
-                </button>
-              </div>
-            )}
 
             {/* Separator */}
             {user && <div className="h-8 w-px bg-border" />}
