@@ -12,6 +12,7 @@
     "serverless-offline": "^13.6.0"
   },
   "dependencies": {
+    "aws-amplify": "^6.15.7",
     "aws-sdk": "^2.1453.0",
     "jsonwebtoken": "^9.0.2",
     "jwk-to-pem": "^2.0.5",
